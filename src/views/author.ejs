@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <link rel='stylesheet' href='/public//css/authors.css'> //Part1 point1
+    <link rel='stylesheet' href='/css/authors.css'>
 </head>
 <body>
 
@@ -95,7 +95,7 @@
                   <button id="editbtn" type="submit" class = "btn btn-success btn-sm" style="float: right;">Edit Author</button>
                   </form>
 
-                  <form action="/authors/delete" method="POST">
+                  <form action="/authors/delete/" method="GET">
                   <input type="hidden" name="id" value="<%=author._id%>">
                   <button id="dltbtn" type="submit" class = "btn btn-danger btn-sm" style="float: right; margin-right: 25px">Delete Author</button>
                   </form>

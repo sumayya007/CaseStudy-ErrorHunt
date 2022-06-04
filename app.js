@@ -38,8 +38,8 @@ app.set('view engine','ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname , '/public'))); 
-// app.use("/public", express.static(__dirname + '/public'));
+// app.use(express.static(path.join(__dirname , '/public'))); 
+app.use(express.static(__dirname + '/public'));
 app.use('/login',loginRouter); 
 app.use('/signup',signupRouter); 
 app.use('/home',homeRouter); 
@@ -58,6 +58,9 @@ app.get('/',function(req,res){
 
 
 
-app.listen(5000,()=>{
-    console.log("Server Ready on 3000");
-});
+// app.listen(5000,()=>{
+//     console.log("Server Ready on 3000");
+// });
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });

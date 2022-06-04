@@ -64,16 +64,28 @@ authorsRouter.get('/:id',function(req,res){
 
 
 //router to delete author
-authorsRouter.post('/delete', function (req, res) {
+//part2 point9
+authorsRouter.delete('/delete', function (req, res) {
 
     const id = req.body.id;  
+    
+    // var item={
+    //     title:req.body.title,
+    //     image:req.body.images,
+    //     about:req.body.about,
+    //     author:req.body,author
+    // }
+    var deletedauthor=authordata.filter(author=>_id===id);
+   
+    authordata.remove(deletedauthor);
+    res.redirect('/authors');
+    // authordata.findOneAndDelete({ _id: id })
+    
+    //     .then(function (author) {
+    //        authordata.remove(author);
+    //         res.redirect('/authors')
 
-    authordata.findOneAndDelete({ _id: id })
-        .then(function () {
-
-            res.redirect('/authors')
-
-        })  
+    //     })  
 })
 
 
@@ -95,7 +107,8 @@ authorsRouter.post('/edit', function (req, res) {
 
 
 //router to update author
-authorsRouter.put('/update', function (req, res) { //Part2 point9
+//Part2 point9
+authorsRouter.put('/update', function (req, res) { 
 
     authordata.findByIdAndUpdate(req.body.id, { $set: req.body }, function (err, data) {
         if (err) {
